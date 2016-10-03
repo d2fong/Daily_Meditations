@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models import Author
+from ..models import Author, Meditation
 
 
 class AuthorSerializer(serializers.ModelSerializer):

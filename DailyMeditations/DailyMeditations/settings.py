@@ -23,15 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '8%b*%kmtrmzq6y5*%%arjx-5o$+(7r85%^y#x2z-spm2oq$sh7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': {
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',
-    },
     'DEFAULT_PERMISSION_CLASSES': [
  'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
