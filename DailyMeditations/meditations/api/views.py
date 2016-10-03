@@ -9,4 +9,7 @@ class AuthorListView(generics.ListAPIView):
 class AuthorDetailView(generics.RetrieveAPIView):
 	queryset = Author.objects.all()
 	serializer_class = AuthorSerializer
-	
+
+class MeditationListView(generics.ListAPIView):
+	queryset = Meditation.objects.all()
+	serializer_class = MeditationSerializer
