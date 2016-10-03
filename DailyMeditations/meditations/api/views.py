@@ -1,5 +1,5 @@
 from rest_framework import generics
-from ..models import Author
+from ..models import Author, Meditation
 from .serializers import AuthorSerializer, MeditationSerializer
 
 class AuthorListView(generics.ListAPIView):
@@ -11,5 +11,9 @@ class AuthorDetailView(generics.RetrieveAPIView):
 	serializer_class = AuthorSerializer
 
 class MeditationListView(generics.ListAPIView):
+	queryset = Meditation.objects.all()
+	serializer_class = MeditationSerializer
+
+class MeditationDetailView(generics.ListAPIView):
 	queryset = Meditation.objects.all()
 	serializer_class = MeditationSerializer
