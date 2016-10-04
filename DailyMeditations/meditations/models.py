@@ -5,14 +5,12 @@ from django.utils import timezone
 
 
 class Meditation(models.Model):
-	STOICISM = 0
-
 	CATEGORY = (
-		(STOICISM, 'stoicism'),
+		('STOICISM', 'stoicism'),
 	)
 
 	author = models.ForeignKey('Author')
-	category = models.IntegerField(choices=CATEGORY)
+	category = models.CharField(max_length=40, choices=CATEGORY)
 	content = models.TextField()
 	created_date = models.DateTimeField(
 		default = timezone.now)

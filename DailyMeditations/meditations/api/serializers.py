@@ -9,6 +9,8 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 
 class MeditationSerializer(serializers.ModelSerializer):
+	author = AuthorSerializer()
+
 	class Meta:
 		model = Meditation
 		fields = ('id', 'author', 'category', 'content')
