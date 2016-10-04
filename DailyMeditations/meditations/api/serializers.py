@@ -7,6 +7,7 @@ class AuthorSerializer(serializers.ModelSerializer):
 		model = Author
 		fields = ('id', 'first_name', 'last_name')
 
+
 class MeditationSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Meditation
