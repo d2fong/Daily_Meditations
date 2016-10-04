@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class Meditation(models.Model):
 	CATEGORY = (
-		('STOICISM', 'stoicism'),
+		('stoicism', 'stoicism'),
 	)
 
 	author = models.ForeignKey('Author')
