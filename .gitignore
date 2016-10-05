@@ -1,5 +1,8 @@
+
+
+*.DS_Store
 # secrets
-DailyMeditations/DailyMeditations/secrets.py
+DailyMeditations/secrets.py
 
 # db
 db.*
