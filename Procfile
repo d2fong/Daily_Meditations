@@ -1,1 +1,1 @@
-web: gunicorn DailyMeditations.wsgi
+web: gunicorn DailyMeditations.wsgi --log-file -
