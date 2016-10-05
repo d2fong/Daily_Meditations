@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
 
 COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
@@ -99,20 +100,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-STATIC_URL = '/static/'
-
-# Extra places for collectstatic to find static files.
-
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
-
 # store static files using whitenoise
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
@@ -126,7 +113,6 @@ DATABASES['default'].update(db_from_env)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
