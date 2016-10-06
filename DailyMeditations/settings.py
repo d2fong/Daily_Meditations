@@ -16,7 +16,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
 
-COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
+# COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -120,7 +120,7 @@ STATICFILES_DIRS = (
 
 # store static files using whitenoise
 
-# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # heroku database setting
 
