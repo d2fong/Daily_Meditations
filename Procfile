@@ -1,1 +1,1 @@
-web: gunicorn DailyMeditations.wsgi --log-file -; python manage.py collectstatic --noinput
+web: gunicorn DailyMeditations.wsgi --log-file -; python manage.py collectstatic --noinput; mkdir static
