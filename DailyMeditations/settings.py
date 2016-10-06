@@ -102,10 +102,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# store static files using whitenoise
-
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
 # heroku database setting
 
 import dj_database_url
@@ -126,7 +122,7 @@ STATICFILES_DIRS = (
 
 # store static files using whitenoise
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # heroku database setting
 
