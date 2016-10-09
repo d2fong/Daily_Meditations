@@ -28,23 +28,23 @@ def string_begins_with_numeric(s):
 	return s[-1] == '.' and s[0:len(s)-1].isdigit()
 
 
-def parse_book_into_paragraphs(f):
-	with open(f, 'r') as file:
-		data = file.read()
+# def parse_book_into_paragraphs(f):
+# 	with open(f, 'r') as file:
+# 		data = file.read()
 
 
-	# print data.split('\n')[:10]
-	content = []
-	index = 0
-	for index in range(len(data)):
-		if snippet == '':
-			continue
+# 	# print data.split('\n')[:10]
+# 	content = []
+# 	index = 0
+# 	for index in range(len(data)):
+# 		if snippet == '':
+# 			continue
 
-		tokens = snippet.split(' ')
-		header = tokens[0]
-		json_snippet = {}
-		if '.' in header and header[0:len(header) - 2].isdigit():
-			content = 
+# 		tokens = snippet.split(' ')
+# 		header = tokens[0]
+# 		json_snippet = {}
+# 		if '.' in header and header[0:len(header) - 2].isdigit():
+# 			content = 
 
 
-parse_book_into_paragraphs('meditations.txt')
+# parse_book_into_paragraphs('meditations.txt')
