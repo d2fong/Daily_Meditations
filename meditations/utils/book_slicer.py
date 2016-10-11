@@ -1,4 +1,4 @@
-
+import json
 
 # algorithm: List of Text -> List of Text
 # traverse through the list of text snippets
@@ -27,24 +27,49 @@ def string_begins_with_numeric(s):
 
 	return s[-1] == '.' and s[0:len(s)-1].isdigit()
 
+def get_text_snippets(data):
+	return data.split('\n')
 
-# def parse_book_into_paragraphs(f):
-# 	with open(f, 'r') as file:
-# 		data = file.read()
+def remove_empty_strings(snippet):
+	return snippet == ''
 
+def process_snippets(data):
 
-# 	# print data.split('\n')[:10]
-# 	content = []
-# 	index = 0
-# 	for index in range(len(data)):
-# 		if snippet == '':
-# 			continue
+	snippets = list(filter(None, data))
 
-# 		tokens = snippet.split(' ')
-# 		header = tokens[0]
-# 		json_snippet = {}
-# 		if '.' in header and header[0:len(header) - 2].isdigit():
-# 			content = 
+	paragraph_list = []
+	curr_paragraph = ''
+	for snippet in snippets:
+		header = snippet.split(' ')[0]
+		if string_begins_with_numeric(header):
+			if len(curr_paragraph) > 0:
+				paragraph_list.append(curr_paragraph)
+			curr_paragraph = snippet
+		else:
+			curr_paragraph += '\n'
+			curr_paragraph += snippet
 
+	return paragraph_list
 
-# parse_book_into_paragraphs('meditations.txt')
+def map_paragraphs_to_json(paragraphs):
+	json_rep = []
+	for paragraph in paragraphs:
+		paragraph_json = {}
+		paragraph_json['content'] = paragraph
+		json_rep.append(paragraph_json)
+
+	print(json_rep)
+	return json_rep
+
+def parse_book_into_paragraphs(src, dst):
+	with open(src, 'r') as file:
+		data = str(file.read())
+
+	text_snippets = get_text_snippets(data)
+	paragraphs = process_snippets(text_snippets)
+	processed_paragraphs = map_paragraphs_to_json(paragraphs)
+	print (json.dumps(processed_paragraphs))
+	with open(dst, 'w') as destination:
+		destination.write(json.dumps(processed_paragraphs, sort_keys=True, ensure_ascii=False))
+
+parse_book_into_paragraphs('meditations.txt', 'output.json')
