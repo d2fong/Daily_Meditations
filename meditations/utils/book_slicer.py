@@ -49,6 +49,7 @@ def process_snippets(data):
 			curr_paragraph += '\n'
 			curr_paragraph += snippet
 
+	paragraph_list.append(snippets[-1])
 	return paragraph_list
 
 def map_paragraphs_to_json(paragraphs):
@@ -58,7 +59,6 @@ def map_paragraphs_to_json(paragraphs):
 		paragraph_json['content'] = paragraph
 		json_rep.append(paragraph_json)
 
-	print(json_rep)
 	return json_rep
 
 def parse_book_into_paragraphs(src, dst):
@@ -68,8 +68,7 @@ def parse_book_into_paragraphs(src, dst):
 	text_snippets = get_text_snippets(data)
 	paragraphs = process_snippets(text_snippets)
 	processed_paragraphs = map_paragraphs_to_json(paragraphs)
-	print (json.dumps(processed_paragraphs))
 	with open(dst, 'w') as destination:
-		destination.write(json.dumps(processed_paragraphs, sort_keys=True, ensure_ascii=False))
+		destination.write(json.dumps(processed_paragraphs, indent=4, sort_keys=True, ensure_ascii=False))
 
 parse_book_into_paragraphs('meditations.txt', 'output.json')
